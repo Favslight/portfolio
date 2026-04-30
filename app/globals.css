@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+body {
+  @apply text-slate-900 antialiased;
+  font-family: var(--font-space-grotesk), "Segoe UI", sans-serif;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.08), transparent 28%),
+    radial-gradient(circle at 90% 20%, rgba(139, 92, 246, 0.08), transparent 24%);
+}
+
+section {
+  scroll-margin-top: 96px;
+}
