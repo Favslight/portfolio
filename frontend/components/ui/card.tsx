@@ -11,8 +11,8 @@ export function Card({ children, className, hover = false }: CardProps) {
   return (
     <article
       className={cn(
-        "rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition-all duration-300",
-        hover && "hover:-translate-y-1 hover:shadow-lift",
+        "rounded-2xl border border-white/10 bg-ink-700/60 p-5 shadow-soft backdrop-blur-sm transition-all duration-300",
+        hover && "hover:-translate-y-1 hover:border-brand-400/40 hover:shadow-glow",
         className
       )}
     >

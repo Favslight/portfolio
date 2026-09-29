@@ -1,31 +1,40 @@
-﻿import { Section } from "@/components/section";
+import { Section } from "@/components/section";
 import { Card } from "@/components/ui/card";
+import { ContactForm } from "@/components/contact-form";
+import type { Profile } from "@/lib/types";
 
-export function ContactSection() {
+export function ContactSection({ profile }: { profile: Profile | null }) {
+  const email = profile?.email || "hello@example.com";
+  const linkedin = profile?.linkedin_url;
+
   return (
-    <Section id="contact" title="Contact" subtitle="Let's build something scalable.">
-      <Card className="bg-gradient-to-br from-white to-brand-50">
-        <div className="grid gap-5 sm:grid-cols-2">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">Email</p>
-            <a className="mt-2 block text-base font-semibold text-slate-900 hover:text-brand-600" href="mailto:samuelebiloma208@gmail.com">
-              samuelebiloma208@gmail.com
-            </a>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">LinkedIn</p>
-            <a
-              className="mt-2 block text-base font-semibold text-slate-900 hover:text-brand-600"
-              href="https://linkedin.com/in/yourprofile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              www.linkedin.com/in/samuel-light-ebiloma-9702a41b4
-            </a>
-          </div>
-        </div>
-      </Card>
+    <Section id="contact" eyebrow="Get in Touch" title="Contact" subtitle="Let's build something scalable.">
+      <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
+        <Card>
+          <ContactForm />
+        </Card>
+
+        <Card className="bg-gradient-to-br from-brand-500/10 to-accent-500/10">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-400">Email</p>
+          <a className="mt-2 block break-all text-base font-semibold text-white hover:text-brand-300" href={`mailto:${email}`}>
+            {email}
+          </a>
+
+          {linkedin ? (
+            <>
+              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-brand-400">LinkedIn</p>
+              <a
+                className="mt-2 block break-all text-base font-semibold text-white hover:text-brand-300"
+                href={linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {linkedin.replace(/^https?:\/\//, "")}
+              </a>
+            </>
+          ) : null}
+        </Card>
+      </div>
     </Section>
   );
 }
-

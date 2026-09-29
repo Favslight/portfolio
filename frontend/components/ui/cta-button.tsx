@@ -12,10 +12,10 @@ export function CTAButton({ href, label, variant = "primary" }: CTAButtonProps) 
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-300 ${
+      className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ${
         isPrimary
-          ? "bg-gradient-to-r from-brand-600 to-accent-500 text-white hover:opacity-90"
-          : "border border-slate-300 bg-white text-slate-800 hover:border-brand-200 hover:text-brand-600"
+          ? "bg-gradient-to-r from-brand-500 to-accent-500 text-white shadow-glow hover:opacity-90"
+          : "border border-white/15 bg-white/5 text-slate-100 hover:border-brand-400/50 hover:text-brand-300"
       }`}
     >
       {label}
